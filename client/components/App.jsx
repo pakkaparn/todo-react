@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import List from './List.jsx'
+import List from './List'
+import 'bulma'
 
 export default class App extends Component {
   constructor (props) {
@@ -27,12 +28,25 @@ export default class App extends Component {
   }
 
   render () {
-    return (<div>
-      <form className="App" onSubmit={this.onSubmit}>
-        <input value={this.state.term} onChange={this.onChange} />
-        <button>Submit</button>
-      </form>
-      <List items={this.state.items} />
-    </div>)
+    return (
+      <section className="section">
+        <div className="container">
+          <form className="App" onSubmit={this.onSubmit}>
+            <div className="field">
+              <div className="control">
+                <input className="input" value={this.state.term} onChange={this.onChange} placeholder="What's you going to do?" />
+              </div>
+            </div>
+
+            <div className="field">
+              <div className="control">
+                <button className="button is-success">Submit</button>
+              </div>
+            </div>
+          </form>
+          <List items={this.state.items} />
+        </div>
+      </section>
+    )
   }
 }
