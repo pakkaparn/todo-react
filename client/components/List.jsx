@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const List = props => (
-  <ul>
-    {
-      props.items.map((item, index) => <li key={index}>{item}</li>)
-    }
-  </ul>
-);
+export default class List extends Component {
+  constructor (props) {
+    super(props)
+    this.props = props
+  }
 
-export default List
+  render () {
+    return (
+      <section className="section">
+        <h2 className="title">Lists</h2>
+        <ul>
+          {
+            this.props.items.map((item, index) => (
+              <li key={index}>
+                <label className="checkbox">
+                  <input type="checkbox" /> {item}
+                </label>
+              </li>
+              )
+            )
+          }
+        </ul>
+      </section>
+    )
+  }
+}
