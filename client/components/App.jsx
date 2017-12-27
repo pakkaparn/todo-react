@@ -27,6 +27,11 @@ export default class App extends Component {
     })
   }
 
+  renderList () {
+    if(this.state.items.length === 0) return null
+    return (<List items={this.state.items} />)
+  }
+
   render () {
     return (
       <section className="section">
@@ -44,7 +49,7 @@ export default class App extends Component {
               </div>
             </div>
           </form>
-          <List items={this.state.items} />
+          { this.renderList() }
         </div>
       </section>
     )
